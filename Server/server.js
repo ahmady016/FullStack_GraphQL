@@ -1,10 +1,9 @@
 import express from 'express'
 import env from './env'
-import axios from 'axios'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
-import schema from './schema'
+import schema from './graphqlSchema'
 
 const PORT = process.env.PORT || env.PORT;
 const server = express();
