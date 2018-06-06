@@ -1,3 +1,14 @@
 export default {
-  PORT: 4000
+  dbURL: 'http://localhost:5000',
+  graphqlURL: '/graphql',
+  graphiqlURL: '/graphiql',
+  PORT: 4000,
+  resources: [
+    "users",
+    "posts",
+    "comments",
+    "albums",
+    "photos",
+    "todos"
+  ]
 }
