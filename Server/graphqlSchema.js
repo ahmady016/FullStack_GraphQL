@@ -114,12 +114,12 @@ const resolvers = {
     post: (_, { id }) => env.request('get',`/posts/${id}`),
     comments: () => env.request('get',`/comments`),
     comment: (_, { id }) => env.request('get',`/comments/${id}`),
-    Albums: () => env.request('get',`/albums`),
-    Album: (_, { id }) => env.request('get',`/albums/${id}`),
-    Photos: () => env.request('get',`/photos`),
-    Photo: (_, { id }) => env.request('get',`/photos/${id}`),
-    Todos: () => env.request('get',`/todos`),
-    Todo: (_, { id }) => env.request('get',`/todos/${id}`)
+    albums: () => env.request('get',`/albums`),
+    album: (_, { id }) => env.request('get',`/albums/${id}`),
+    photos: () => env.request('get',`/photos`),
+    photo: (_, { id }) => env.request('get',`/photos/${id}`),
+    todos: () => env.request('get',`/todos`),
+    todo: (_, { id }) => env.request('get',`/todos/${id}`)
   }
 };
 
