@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools'
-import env from './env'
+import { fetch } from './env'
 
 const typeDefs = [`
   type Comment {
@@ -86,40 +86,40 @@ const typeDefs = [`
 
 const resolvers = {
   User: {
-    posts: user =>  env.request('get',`/users/${user.id}/posts`),
-    albums: user => env.request('get',`/users/${user.id}/albums`),
-    todos: user =>  env.request('get',`/users/${user.id}/todos`)
+    posts: user =>  fetch('get',`/users/${user.id}/posts`),
+    albums: user => fetch('get',`/users/${user.id}/albums`),
+    todos: user =>  fetch('get',`/users/${user.id}/todos`)
   },
   Post: {
-    user: post => env.request('get',`/users/${post.userId}`),
-    comments: post =>  env.request('get',`/posts/${post.id}/comments`)
+    user: post => fetch('get',`/users/${post.userId}`),
+    comments: post =>  fetch('get',`/posts/${post.id}/comments`)
   },
   Comment: {
-    post: comment => env.request('get',`/posts/${comment.postId}`)
+    post: comment => fetch('get',`/posts/${comment.postId}`)
   },
   Album: {
-    user: album => env.request('get',`/users/${album.userId}`),
-    photos: album =>  env.request('get',`/albums/${album.id}/photos`)
+    user: album => fetch('get',`/users/${album.userId}`),
+    photos: album =>  fetch('get',`/albums/${album.id}/photos`)
   },
   Photo: {
-    album: photo => env.request('get',`/albums/${photo.albumId}`)
+    album: photo => fetch('get',`/albums/${photo.albumId}`)
   },
   Todo: {
-    user: todo => env.request('get',`/users/${todo.userId}`)
+    user: todo => fetch('get',`/users/${todo.userId}`)
   },
   Query: {
-    users: () => env.request('get',`/users`),
-    user: (_, { id }) => env.request('get',`/users/${id}`),
-    posts: () => env.request('get',`/posts`),
-    post: (_, { id }) => env.request('get',`/posts/${id}`),
-    comments: () => env.request('get',`/comments`),
-    comment: (_, { id }) => env.request('get',`/comments/${id}`),
-    albums: () => env.request('get',`/albums`),
-    album: (_, { id }) => env.request('get',`/albums/${id}`),
-    photos: () => env.request('get',`/photos`),
-    photo: (_, { id }) => env.request('get',`/photos/${id}`),
-    todos: () => env.request('get',`/todos`),
-    todo: (_, { id }) => env.request('get',`/todos/${id}`)
+    users: () => fetch('get',`/users`),
+    user: (_, { id }) => fetch('get',`/users/${id}`),
+    posts: () => fetch('get',`/posts`),
+    post: (_, { id }) => fetch('get',`/posts/${id}`),
+    comments: () => fetch('get',`/comments`),
+    comment: (_, { id }) => fetch('get',`/comments/${id}`),
+    albums: () => fetch('get',`/albums`),
+    album: (_, { id }) => fetch('get',`/albums/${id}`),
+    photos: () => fetch('get',`/photos`),
+    photo: (_, { id }) => fetch('get',`/photos/${id}`),
+    todos: () => fetch('get',`/todos`),
+    todo: (_, { id }) => fetch('get',`/todos/${id}`)
   }
 };
 

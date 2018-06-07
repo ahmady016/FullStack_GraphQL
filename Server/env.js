@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default {
+const env = {
   dbURL: 'http://localhost:5000',
   graphqlURL: '/graphql',
   graphiqlURL: '/graphiql',
@@ -13,8 +13,13 @@ export default {
     "photos",
     "todos"
   ],
-  request(method, url, data = {}) {
-    return axios[method](`${this.dbURLurl}${url}`,data)
-                .then(res => res.data);
-  }
+}
+const fetch = (method, url, data = {}) => {
+  console.log(`${method.toUpperCase()} ${env.dbURL}${url}`);
+  return axios[method](`${env.dbURL}${url}`,data)
+              .then(res => res.data);
+}
+export {
+  env as default,
+  fetch
 }
