@@ -82,6 +82,44 @@ const typeDefs = [`
     todos: [Todo],
     todo(id: Int!): Todo
   }
+  input GeoInput {
+    lat: String,
+    lng: String
+  }
+  input AddressInput {
+    street: String,
+    suite: String,
+    city: String,
+    zipcode: String,
+    geo: GeoInput
+  }
+  input CompanyInput {
+    name: String,
+    catchPhrase: String,
+    bs: String
+  }
+  type Mutation {
+    addUser(
+      name: String!,
+      username: String!,
+      email: String!,
+      phone: String,
+      website: String,
+      address: AddressInput,
+      company: CompanyInput
+    ): User
+    updateUser(
+      id: Int!,
+      name: String,
+      username: String,
+      email: String,
+      phone: String,
+      website: String,
+      address: AddressInput,
+      company: CompanyInput
+    ): User
+    deleteUser(id: Int!): User
+  }
 `];
 
 const resolvers = {
@@ -120,6 +158,11 @@ const resolvers = {
     photo: (_, { id }) => fetch('get',`/photos/${id}`),
     todos: () => fetch('get',`/todos`),
     todo: (_, { id }) => fetch('get',`/todos/${id}`)
+  },
+  Mutation: {
+    addUser:    (_, args) => fetch('post',`/users`,args),
+    updateUser: (_, args) => fetch('patch', `/users/${args.id}`,args),
+    deleteUser: (_, args) => fetch('delete',`/users/${args.id}`,args)
   }
 };
 

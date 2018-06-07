@@ -252,6 +252,29 @@
         "bs": "Learn Computer Skills"
       },
       "id": 11
+    },
+    {
+      "name": "Tamer Hosny",
+      "username": "Tamora",
+      "email": "tamora@yahoo.com",
+      "phone": "0822654874",
+      "website": "itcbns.gov.eg",
+      "address": {
+        "street": "Amer St.",
+        "suite": "Salah Salem",
+        "city": "benisuef",
+        "zipcode": "321654654",
+        "geo": {
+          "lat": "29.5622",
+          "lng": "21.6498"
+        }
+      },
+      "company": {
+        "name": "ITC-BNS",
+        "catchPhrase": "learning a Computer Skills",
+        "bs": "how about learning"
+      },
+      "id": 12
     }
   ],
   "posts": [
