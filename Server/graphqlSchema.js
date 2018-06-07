@@ -3,14 +3,14 @@ import { fetch } from './env'
 
 const typeDefs = [`
   type Comment {
-    id: Int!,
+    id: Int,
     email: String,
     body: String,
     postId: Int,
     post: Post
   }
   type Post {
-    id: Int!,
+    id: Int,
     title: String,
     body: String,
     userId: Int,
@@ -18,7 +18,7 @@ const typeDefs = [`
     comments: [Comment]
   }
   type Photo {
-    id: Int!,
+    id: Int,
     title: String,
     url: String,
     thumbnailUrl: String,
@@ -26,14 +26,14 @@ const typeDefs = [`
     album: Album
   }
   type Album {
-    id: Int!,
+    id: Int,
     title: String,
     userId: Int,
     user: User,
     photos: [Photo]
   }
   type Todo {
-    id: Int!,
+    id: Int,
     title: String,
     completed: Boolean,
     userId: Int,
@@ -56,7 +56,7 @@ const typeDefs = [`
     bs: String
   }
   type User {
-    id: Int!,
+    id: Int,
     name: String,
     username: String,
     email: String,
@@ -119,6 +119,18 @@ const typeDefs = [`
       company: CompanyInput
     ): User
     deleteUser(id: Int!): User
+    addPost(
+      title: String!,
+      body: String!,
+      userId: Int
+    ): Post
+    updatePost(
+      id: Int!,
+      title: String!,
+      body: String!,
+      userId: Int
+    ): Post
+    deletePost(id: Int!): Post
   }
 `];
 
@@ -162,7 +174,10 @@ const resolvers = {
   Mutation: {
     addUser:    (_, args) => fetch('post',`/users`,args),
     updateUser: (_, args) => fetch('patch', `/users/${args.id}`,args),
-    deleteUser: (_, args) => fetch('delete',`/users/${args.id}`,args)
+    deleteUser: (_, args) => fetch('delete',`/users/${args.id}`,args),
+    addPost:    (_, args) => fetch('post',`/posts`,args),
+    updatePost: (_, args) => fetch('patch', `/posts/${args.id}`,args),
+    deletePost: (_, args) => fetch('delete',`/posts/${args.id}`,args)
   }
 };
 
