@@ -153,6 +153,20 @@ const typeDefs = [`
       userId: Int
     ): Album
     deleteAlbum(id: Int!): Album
+    addPhoto(
+      title: String!,
+      url: String!,
+      thumbnailUrl: String!,
+      albumId: Int
+    ): Photo
+    updatePhoto(
+      id: Int!,
+      title: String,
+      url: String,
+      thumbnailUrl: String,
+      albumId: Int
+    ): Photo
+    deletePhoto(id: Int!): Photo
   }
 `];
 
@@ -205,7 +219,10 @@ const resolvers = {
     deleteComment:  (_, args) => fetch('delete',`/comments/${args.id}`,args),
     addAlbum:     (_, args) => fetch('post',`/albums`,args),
     updateAlbum:  (_, args) => fetch('patch', `/albums/${args.id}`,args),
-    deleteAlbum:  (_, args) => fetch('delete',`/albums/${args.id}`,args)
+    deleteAlbum:  (_, args) => fetch('delete',`/albums/${args.id}`,args),
+    addPhoto:     (_, args) => fetch('post',`/photos`,args),
+    updatePhoto:  (_, args) => fetch('patch', `/photos/${args.id}`,args),
+    deletePhoto:  (_, args) => fetch('delete',`/photos/${args.id}`,args)
   }
 };
 
