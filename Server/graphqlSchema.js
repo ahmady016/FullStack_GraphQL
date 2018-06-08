@@ -126,11 +126,33 @@ const typeDefs = [`
     ): Post
     updatePost(
       id: Int!,
-      title: String!,
-      body: String!,
+      title: String,
+      body: String,
       userId: Int
     ): Post
     deletePost(id: Int!): Post
+    addComment(
+      email: String!,
+      body: String!,
+      postId: Int
+    ): Comment
+    updateComment(
+      id: Int!
+      email: String,
+      body: String,
+      postId: Int
+    ): Comment
+    deleteComment(id: Int!): Comment
+    addAlbum(
+      title: String!,
+      userId: Int
+    ): Album
+    updateAlbum(
+      id: Int!
+      title: String,
+      userId: Int
+    ): Album
+    deleteAlbum(id: Int!): Album
   }
 `];
 
@@ -172,12 +194,18 @@ const resolvers = {
     todo: (_, { id }) => fetch('get',`/todos/${id}`)
   },
   Mutation: {
-    addUser:    (_, args) => fetch('post',`/users`,args),
-    updateUser: (_, args) => fetch('patch', `/users/${args.id}`,args),
-    deleteUser: (_, args) => fetch('delete',`/users/${args.id}`,args),
-    addPost:    (_, args) => fetch('post',`/posts`,args),
-    updatePost: (_, args) => fetch('patch', `/posts/${args.id}`,args),
-    deletePost: (_, args) => fetch('delete',`/posts/${args.id}`,args)
+    addUser:        (_, args) => fetch('post',`/users`,args),
+    updateUser:     (_, args) => fetch('patch', `/users/${args.id}`,args),
+    deleteUser:     (_, args) => fetch('delete',`/users/${args.id}`,args),
+    addPost:        (_, args) => fetch('post',`/posts`,args),
+    updatePost:     (_, args) => fetch('patch', `/posts/${args.id}`,args),
+    deletePost:     (_, args) => fetch('delete',`/posts/${args.id}`,args),
+    addComment:     (_, args) => fetch('post',`/comments`,args),
+    updateComment:  (_, args) => fetch('patch', `/comments/${args.id}`,args),
+    deleteComment:  (_, args) => fetch('delete',`/comments/${args.id}`,args),
+    addAlbum:     (_, args) => fetch('post',`/albums`,args),
+    updateAlbum:  (_, args) => fetch('patch', `/albums/${args.id}`,args),
+    deleteAlbum:  (_, args) => fetch('delete',`/albums/${args.id}`,args)
   }
 };
 
