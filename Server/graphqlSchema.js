@@ -167,6 +167,18 @@ const typeDefs = [`
       albumId: Int
     ): Photo
     deletePhoto(id: Int!): Photo
+    addTodo(
+      title: String!,
+      completed: Boolean,
+      userId: Int
+    ): Todo
+    updateTodo(
+      id: Int!
+      title: String!,
+      completed: Boolean!,
+      userId: Int
+    ): Todo
+    deleteTodo(id: Int!): Todo
   }
 `];
 
@@ -222,7 +234,10 @@ const resolvers = {
     deleteAlbum:  (_, args) => fetch('delete',`/albums/${args.id}`,args),
     addPhoto:     (_, args) => fetch('post',`/photos`,args),
     updatePhoto:  (_, args) => fetch('patch', `/photos/${args.id}`,args),
-    deletePhoto:  (_, args) => fetch('delete',`/photos/${args.id}`,args)
+    deletePhoto:  (_, args) => fetch('delete',`/photos/${args.id}`,args),
+    addTodo:     (_, args) => fetch('post',`/todos`,args),
+    updateTodo:  (_, args) => fetch('patch', `/todos/${args.id}`,args),
+    deleteTodo:  (_, args) => fetch('delete',`/todos/${args.id}`,args)
   }
 };
 
