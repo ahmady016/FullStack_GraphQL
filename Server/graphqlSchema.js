@@ -174,8 +174,8 @@ const typeDefs = [`
     ): Todo
     updateTodo(
       id: Int!
-      title: String!,
-      completed: Boolean!,
+      title: String,
+      completed: Boolean,
       userId: Int
     ): Todo
     deleteTodo(id: Int!): Todo
