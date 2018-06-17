@@ -1,6 +1,6 @@
 .todos {
-  width: 70%;
-  height: 78vh;
+  width: 55%;
+  height: 80vh;
   overflow-y: scroll;
   margin: auto;
 }

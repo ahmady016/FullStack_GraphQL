@@ -21,9 +21,14 @@ export default () => (
           <Paper className="todos scroll">
             <List>
               {data.todos.map(({ id, title, completed }) => (
-                <ListItem className="todo" key={id} role={undefined} dense button>
+                <ListItem className="todo"
+                          key={id}
+                          onClick={() => { console.log(completed); }}
+                          dense
+                          button>
                   <Checkbox checked={completed} tabIndex={-1} disableRipple />
-                  <ListItemText primary={title} />
+                  <ListItemText primary={title}
+                                secondary={completed? 'Completed' : 'In Progress'} />
                 </ListItem>
               ))}
             </List>

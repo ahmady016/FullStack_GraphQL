@@ -12,8 +12,8 @@ const client = new ApolloClient({
 const App = () => (
   <ApolloProvider client={client}>
     <div className="container">
-      <Typography variant="display3" align="center" gutterBottom>
-        <i class="header material-icons">assignment</i>
+      <Typography variant="display1" gutterBottom>
+        <i className="header material-icons">assignment</i>
         First GraphQL-Apollo App
       </Typography>
       <Todos />

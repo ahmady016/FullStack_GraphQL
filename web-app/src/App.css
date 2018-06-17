@@ -1,13 +1,13 @@
 body {
   font-family: 'Roboto', 'Segoe UI', Verdana;
-  background-color: #d6c097;
+  background-color: #a7adb9;
 }
-.container {
+/* .container {
   width: 80%;
   margin: auto;
-}
+} */
 i.header {
-  font-size: 48px;
+  font-size: 36px;
   margin-right: 10px;
   position: relative;
   top: 8px;
