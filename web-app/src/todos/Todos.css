@@ -1,0 +1,9 @@
+.todos {
+  width: 70%;
+  height: 78vh;
+  overflow-y: scroll;
+  margin: auto;
+}
+.todo {
+  border-bottom: 1px solid #ddd !important;
+}

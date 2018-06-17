@@ -1,4 +1,30 @@
 body {
-  font-family: 'Segoe UI', Verdana, sans-serif;
+  font-family: 'Roboto', 'Segoe UI', Verdana;
   background-color: #d6c097;
 }
+.container {
+  width: 80%;
+  margin: auto;
+}
+i.header {
+  font-size: 48px;
+  margin-right: 10px;
+  position: relative;
+  top: 8px;
+}
+/*  format scrollbar   */
+.scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #82257e;
+  border-radius: 5px;
+}
+.scroll::-webkit-scrollbar-track-piece {
+  background-color:#bcbcbc;
+  border-radius: 5px;
+}
+/*  format scrollbar   */
