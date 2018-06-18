@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const todos = gql`
+export const TODOS = gql`
 {
   todos {
     id
@@ -8,4 +8,13 @@ export const todos = gql`
     completed
   }
 }
+`;
+
+export const SET_COMPLETED = gql`
+  mutation setCompleted($id: Int!, $completed: Boolean!) {
+    updateTodo(id: $id, completed: $completed) {
+      id
+      completed
+    }
+  }
 `;
