@@ -216,7 +216,8 @@ const resolvers = {
     album: (_, { id }) => fetch('get',`/albums/${id}`),
     photos: () => fetch('get',`/photos`),
     photo: (_, { id }) => fetch('get',`/photos/${id}`),
-    todos: () => fetch('get',`/todos`),
+    // delay 3 seconds to test loading progress in UI
+    todos: () => new Promise( (resolve) => setTimeout(resolve, 3000, fetch('get',`/todos`)) ),
     todo: (_, { id }) => fetch('get',`/todos/${id}`)
   },
   Mutation: {
